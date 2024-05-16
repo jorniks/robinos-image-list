@@ -20,10 +20,9 @@ import politics from './teams/politics/index.json'
 import leagueImageObject from './league-images/index.json'
 // TOKEN IMAGES
 import tokenImageObject from './token-images/index.json'
-import { LeagueImageType, TeamImageType, TokenImageType } from './types'
+import { TeamImageType } from './interfaces'
 
-
-const teamImages: TeamImageType = {
+const allImages: TeamImageType = {
   ...afl,
   ...any_others,
   ...cricket,
@@ -41,31 +40,14 @@ const teamImages: TeamImageType = {
   ...nba,
   ...ncaa,
   ...nfl,
-  ...politics
-}
-
-const leagueImages: LeagueImageType = {
-  ...leagueImageObject
-}
-
-const tokenImages: TokenImageType = {
+  ...politics,
+  ...leagueImageObject,
   ...tokenImageObject
 }
 
-function getTeamImage(teamName: string): string {
-  const matchingKey = Object.keys(teamImages).find(key => key.toLowerCase().replace(' ', '_') === teamName);
-  return matchingKey ? teamImages[matchingKey as keyof typeof teamImages] : "/img/token_40px.png";
+export const getImageLink = (keyName: string): string => {
+  const trimmedTeamName= keyName.trim()
+  const modifiedTeamName= trimmedTeamName.toLowerCase().replace(' ', '_')
+  const matchingKey = Object.keys(allImages).find(key => key.toLowerCase().replace(' ', '_') === modifiedTeamName);
+  return matchingKey ? allImages[matchingKey as keyof typeof allImages] : "/img/robinos_isotype.svg";
 }
-
-function getLeagueImage(leagueName: string): string {
-  const matchingKey = Object.keys(leagueImages).find(key => key.toLowerCase().replace(' ', '_') === leagueName);
-  return matchingKey ? leagueImages[matchingKey as keyof typeof leagueImages] : "/img/token_40px.png";
-}
-
-function getTokenImage(tokenName: string): string {
-  const matchingKey = Object.keys(tokenImages).find(key => key.toLowerCase().replace(' ', '_') === tokenName);
-  return matchingKey ? tokenImages[matchingKey as keyof typeof tokenImages] : "/img/token_40px.png";
-}
-
-
-export default { getTeamImage, getLeagueImage, getTokenImage }

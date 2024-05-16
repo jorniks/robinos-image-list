@@ -1,12 +1,12 @@
 {
-  "name": "@robinos/image-list",
-  "version": "0.0.1",
+  "name": "@jorniks/image-list",
+  "version": "0.1.0",
   "description": "Robinos Prediction default token list",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "tsup"
+    "build": "tsdx build"
   },
   "repository": {
     "type": "git",
@@ -16,6 +16,9 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
+  "files": [
+    "dist"
+  ],
   "bugs": {
     "url": "https://github.com/jorniks/robinos-image-list/issues"
   },
@@ -28,7 +31,11 @@
   "author": "Robinos",
   "license": "GPL-3.0-or-later",
   "devDependencies": {
-    "tsup": "^8.0.2",
+    "@types/babel__core": "^7.20.5",
+    "@types/babel__generator": "^7.6.8",
+    "@types/babel__template": "^7.4.4",
+    "@types/babel__traverse": "^7.20.5",
+    "tsdx": "^0.14.1",
     "typescript": "^5.4.5"
   }
 }

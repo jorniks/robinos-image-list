@@ -1,12 +1,14 @@
 {
   "compilerOptions": {
+    "types": ["node", "@types/babel__core", "@types/babel__generator", "@types/babel__template", "@types/babel__traverse"],
     "strict": true,
     "noImplicitAny": true,
     "esModuleInterop": true,
-    "target": "ES2022",
+    "target": "ES2018",
     "moduleResolution": "Node",
-    "module": "CommonJS",
+    "module": "ESNext",
     "declaration": true,
+    "alwaysStrict": true,
     "isolatedModules": true,
     "noEmit": true,
     "outDir": "dist",
